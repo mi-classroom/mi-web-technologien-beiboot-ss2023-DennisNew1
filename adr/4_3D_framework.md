@@ -18,12 +18,13 @@ To keep the project light, A-frame was choosen.
 ## Consequences
 
 ### Pros
-- easy to use example
+- easy to use
 - no node.js required 
 - keeps project light
 
 ### Cons
 - framework may need to change in further issues
+- examples are outdated or wrong
 
 
 
