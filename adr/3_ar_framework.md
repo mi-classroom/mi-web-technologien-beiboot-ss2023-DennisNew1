@@ -26,6 +26,7 @@ AR.js uses [webGL](https://caniuse.com/webgl) instead. As seen on the link, it i
 ### Cons
 - Documentation is bit short
 - lesser functionality
+- only supports three.js and a-frame
 
 
 
