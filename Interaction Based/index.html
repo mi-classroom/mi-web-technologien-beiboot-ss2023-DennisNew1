@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<!-- aframe as 3D Library-->
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<!-- arjs version with marker and location support -->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+<style>
+    .loading-screen {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 100%);
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .btn {
+        width: 10em;
+        height: 5em;
+    }
+
+    .hide {
+        display: none;
+    }
+</style>
+
+<script>
+    init();
+
+    function init() {
+        console.log("init video");
+        
+        AFRAME.registerComponent('clickhandler', {
+            init: function() {
+                console.log("added click listener");
+                this.el.addEventListener("click", function(e) {
+                    console.log("play");
+                    document.querySelector("#dune").play();
+                });
+            } 
+        });       
+    }
+
+    function start(e) {
+        e.parentElement.classList.add("hide");
+        // mobile browser autoplay always through triggering the click event somehow.
+        // on firefox loading video doesnt load. maybe it doesnt support the asset loading via video (test it pls)
+        
+    }
+
+</script>
+
+<body style="margin : 0px; overflow: hidden;">
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();    
+    </script>
+    <div class="loading-screen">
+        <button class="btn" onclick="start(this)">Start</button>
+    </div>
+    <a-scene embedded arjs >
+        <a-entity cursor="rayOrigin:mouse"></a-entity>
+        <a-assets>
+            <video id="dune" loop="true" src="dune.mp4" autoplay="false"></video>
+        </a-assets>
+        <!-- Using the preset hiro marker, can be found here: https://commons.wikimedia.org/wiki/File:Hiro_marker_ARjs.png-->
+        <a-marker preset="hiro">
+            <!-- video rotated by -90 degrees, so it showing acurately on a flat surface -->
+
+            <a-video id="video" src="#dune" rotation="-90 0 0" clickhandler></a-video>
+        </a-marker>
+        <a-entity camera>
+        </a-entity>
+
+    </a-scene>
+    
+</body>
+
+</html>
