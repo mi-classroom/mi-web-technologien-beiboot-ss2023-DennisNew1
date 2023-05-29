@@ -1,3 +1,6 @@
 # can not upload epidemic sound files here, sorry
 *.mp3
 *.wav
+
+# Same goes for videos (they are CC0, and i will provide them on the live view, but big data size i want avoid to upload to git.)
+*.mp4
