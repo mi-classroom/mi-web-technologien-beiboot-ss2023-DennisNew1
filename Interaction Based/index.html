@@ -26,21 +26,37 @@
 
     .hide {
         display: none;
+        cursor: default;
     }
 </style>
 
 <script>
+    var isVideoPlaying = false;
+    var isStartButtonClicked = false;
+
     init();
 
     function init() {
         console.log("init video");
-        
+        // Controls video play/pause interaction
         AFRAME.registerComponent('clickhandler', {
             init: function() {
                 console.log("added click listener");
                 this.el.addEventListener("click", function(e) {
-                    console.log("play");
-                    document.querySelector("#dune").play();
+                    console.log(e);
+                    // prevent from starting too early.
+                    if (isStartButtonClicked && document.querySelector("#marker").object3D.visible) {
+                        let video = document.querySelector("#video-asset");
+                        if (!isVideoPlaying) {
+                            console.log("play");
+                            video.play();
+                            isVideoPlaying = true;
+                        } else {
+                            console.log("pause");
+                            video.pause();
+                            isVideoPlaying = false;
+                        }
+                    }
                 });
             } 
         });       
@@ -48,9 +64,7 @@
 
     function start(e) {
         e.parentElement.classList.add("hide");
-        // mobile browser autoplay always through triggering the click event somehow.
-        // on firefox loading video doesnt load. maybe it doesnt support the asset loading via video (test it pls)
-        
+        isStartButtonClicked = true;
     }
 
 </script>
@@ -62,18 +76,23 @@
     <div class="loading-screen">
         <button class="btn" onclick="start(this)">Start</button>
     </div>
-    <a-scene embedded arjs >
-        <a-entity cursor="rayOrigin:mouse"></a-entity>
+    <a-scene embedded arjs>
         <a-assets>
-            <video id="dune" loop="true" src="dune.mp4" autoplay="false"></video>
+            <!-- Works only in Chrome so far-->
+            <video id="video-asset" loop="true" src="church.mp4" autoplay="false"></video>
         </a-assets>
         <!-- Using the preset hiro marker, can be found here: https://commons.wikimedia.org/wiki/File:Hiro_marker_ARjs.png-->
-        <a-marker preset="hiro">
+        <a-entity cursor="rayOrigin:mouse"></a-entity>
+        <a-marker id="marker" preset="hiro">
+            
             <!-- video rotated by -90 degrees, so it showing acurately on a flat surface -->
-
-            <a-video id="video" src="#dune" rotation="-90 0 0" clickhandler></a-video>
+            <a-video class="collidable"  id="video" src="#video-asset" rotation="-90 0 0" width="1.2" height="0.6" clickhandler>
+                
+            </a-video>
         </a-marker>
-        <a-entity camera>
+        <!-- https://github.com/AR-js-org/AR.js/issues/40 or https://github.com/AR-js-org/AR.js/issues/493 cursor is still off sometimes 
+        work around with fov-->
+        <a-entity  camera="fov: 45">   
         </a-entity>
 
     </a-scene>
