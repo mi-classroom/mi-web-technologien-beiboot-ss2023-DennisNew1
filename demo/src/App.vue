@@ -28,7 +28,7 @@ export default {
 <template>
   <header v-if="showNav">
     <nav class="nav"> 
-        <div class="nav-back" @click="$router.back()">&lt</div> {{ this.pageTitle }} 
+        <div class="nav-back" @click="$router.back()">&lt</div> {{ pageTitle }} 
     </nav>
   </header>
 

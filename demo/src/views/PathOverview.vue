@@ -14,23 +14,23 @@ export default {
     },
     data() {
         return {
-            // Array with the experiences and metaData
+            // Array with the experiences and metaData => we should call this in a realistic scnenario with absolute pathes
             experiences: [ 
                 {
                     title: "Wiehl",
-                    image: "src/assets/images/waldbroel.jpg"
+                    image: "../assets/images/waldbroel.jpg"
                 },
                 {
                     title: "Straße der Arbeit - Marienheide",
-                    image: "src/assets/images/unnenbergturm.jpg"
+                    image: "../assets/images/unnenbergturm.jpg"
                 },
                 {
                     title: "Wipperfürth",
-                    image: "src/assets/images/wipperfürth.webp"
+                    image: "../assets/images/wipperfürth.webp"
                 },
             ]
         }
-    }
+    },
 }
 </script>
 <style scoped lang="css">

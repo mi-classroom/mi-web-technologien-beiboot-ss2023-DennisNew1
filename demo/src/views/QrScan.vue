@@ -1,7 +1,6 @@
 <template>
     <div class="qr-container container">
         <div id="reader" width="600px"></div>
-        <div >{{ readings }}</div>
     </div>
 </template>
 <script>
@@ -11,7 +10,6 @@ export default {
     data() {
         return {
             cameraId: -1,
-            readings: "test",
             apihtml5QrCode: null,
             showReader: true,
             scannedId: -1

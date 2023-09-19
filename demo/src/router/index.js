@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
 import MainMenu from '../views/MainMenu.vue';
 import PathOverview from '../views/PathOverview.vue';
 import MethodView from '../views/MethodView.vue';
@@ -7,7 +7,7 @@ import QrScan from '../views/QrScan.vue';
 import ArExp from '../views/ArExp.vue';
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
@@ -19,7 +19,10 @@ const router = createRouter({
         },
         {
             path: '/',
-            redirect: '/'
+            redirect: '/',
+            meta: {
+                pageTitle: ""
+            }
         },
         {
             path: '/pathOverview',

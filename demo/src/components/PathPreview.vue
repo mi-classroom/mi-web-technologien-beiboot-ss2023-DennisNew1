@@ -6,11 +6,10 @@
 <script>
 export default {
     props: ['bg','title'],
-    computed: {
-    },
     data() {
         return {
-            bgImage: `url(${this.bg})`
+            // makes sure this is always correct even in Build (building for css backgrounds doesnt work properly on inserted variables)
+            bgImage: `url(${new URL(this.bg, import.meta.url).href})`
         }
     },
 }

@@ -19,8 +19,8 @@ export default {
         return {
             // we could easily add all experiences/POCs here
             experiences: [
-                { src: "./../src/assets/html/interaction/index.html" },
-                { src: "./../src/assets/html/markerbased/index.html" }
+                { src: "../assets/html/interaction/index.html" },
+                { src: "../assets/html/markerbased/index.html" }
             ],
             experienceToShow: -1,
         }
@@ -29,7 +29,9 @@ export default {
         // theoretically we could call the whole document here as well.
         let id = parseInt(this.$route.params.id);
         if (this.experiences[id]) {
-            this.experienceToShow = this.experiences[id].src;
+            // we need to align the urls for production and dev, as these are neither static or absolute paths
+            // usually we would call these from an API
+            this.experienceToShow = new URL(this.experiences[id].src, import.meta.url).href ;
             console.log(this.experienceToShow);
         }
         
