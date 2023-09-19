@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <!-- aframe as 3D Library-->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- arjs version with marker and location support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs>
+		<!-- Using the preset hiro marker, can be found here: https://commons.wikimedia.org/wiki/File:Hiro_marker_ARjs.png-->
+      <a-marker preset="hiro">
+		<!-- Whatever is put here will be on the hiro marker -->
+        <a-box color="tomato" depth="0.5" height="0.5" width="0.5" ></a-box>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+
+  <script>
+    
+  </script>
+</html>

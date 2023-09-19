@@ -17,8 +17,10 @@
 export default {
     data() {
         return {
+            // we could easily add all experiences/POCs here
             experiences: [
-                { src: "./../src/assets/html/index.html" }
+                { src: "./../src/assets/html/interaction/index.html" },
+                { src: "./../src/assets/html/markerbased/index.html" }
             ],
             experienceToShow: -1,
         }
