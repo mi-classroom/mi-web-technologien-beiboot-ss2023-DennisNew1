@@ -3,12 +3,13 @@
 Für alle Beispiele wird ein Hiro Pattern benötigt: https://de.wikiversity.org/wiki/Datei:Pattern-hiro.png
 
 All POCs and the demo version can be found here: https://www.gm.fh-koeln.de/~mi1933/ 
+**Die Demo Version ist portrait & mobile only** also bitte auf dem Handy oder im dev Modus anschauen z.B. Iphone 12: 
 Demo: https://www.gm.fh-koeln.de/~mi1933/demo
 
 
 Diese QR-codes können mit der Demo gescannt werden:
-![QRCode1](./demo/qrcode_0.gif)
-![QRCode1](./demo/qrcode_0.gif)
+<img src="./demo/qrcode_0.gif" alt="QRCode0" width="200"/>
+<img src="./demo/qrcode_1.gif" alt="QRCode1" width="200"/>
 
 
 
