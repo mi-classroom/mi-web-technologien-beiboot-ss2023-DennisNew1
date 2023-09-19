@@ -25,6 +25,17 @@
             <a href="./Interaction%20Based/">Videoplayer & Gallery Function</a>
         </div>
 
+        <h1>Demo </h1>
+        <div class="link-set">
+            <a href="./Interaction%20Based/">Demo, mit interaction based & markerbased</a>
+            <p>Beide QR Codes benötigen außerdem den Hiromarker, sobald diese gescannt worden sind. Der Linke QR-Code startet den Interaction based POC. Der Switch Button wird eventuell vom Browser oder Handy Menü verdeckt. Der zweite Code ist für das einfache Anzeigen des Cubes auf dem Hiromarker. </p>
+            <div class="qr-container"> 
+                <img class="qr" src="./demo/qrcode_0.gif"/>
+                <img class="qr" src="./demo/qrcode_1.gif">
+            </div>
+            
+        </div>
+
 
 
         
@@ -46,6 +57,15 @@
         .link-set {
             display: flex;
             flex-direction: column;
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .qr {
+            width: 10%;
         }
     </style>
 </html>
